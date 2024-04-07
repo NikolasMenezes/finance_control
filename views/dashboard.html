@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="Pt-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | App</title>
+
+    <!-- Libs -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- My JS -->
+    <script type="module" src="../assets/js/dashboard.js" defer></script>
+</head>
+
+<body class="bg-zinc-100 dark:bg-zinc-900 dark:text-white ">
+    <header class="bg-sky-200 dark:bg-sky-600">
+        <nav class="flex justify-between px-10 h-24 max-w-7xl mx-auto items-center dark:text-white ">
+            <img src="../assets/img/money-svgrepo-com.svg" class="h-12 rounded-full" alt="" id="logo">
+            <ul class="flex gap-3">
+                <li class="hover:underline"><a href="#">Home</a></li>
+                <li class="hover:underline"><a href="#">Gráficos</a></li>
+                <li class="hover:underline"><a href="#">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="px-5 max-w-7xl mx-auto">
+        <div class="flex justify-between  items-center h-16">
+            <h1>Bem Vindo(a) - <span id="user-name">Elon Musk</span> 💰💰💰💰</h1>
+            <a class="rounded px-4 bg-sky-600 hover:bg-sky-800 duration-300 py-2 text-white " type="submit"
+                id="login-btn" href="./finances.html">Comece agora</a>
+        </div>
+        <div>
+            <p class="text-2xl font-medium mb-5">Gastos x Receita</p>
+            <div class="h-fit w-fit p-5 rounded-md  border border-zinc-600 dark:border-zinc-100">
+                <canvas id="myChart" class="h-full"></canvas>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

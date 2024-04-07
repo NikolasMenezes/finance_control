@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./assets/js/index.js" defer></script>
+</head>
+
+<body
+    class="bg-zinc-100 dark:bg-zinc-900 dark:text-white h-screen flex flex-col justify-center max-w-7xl mx-auto relative">
+    <h1 class="text-4xl font-medium text-center my-10 mb-20">Título do app</h1>
+    <div class="flex justify-evenly gap-5 items-center flex-col-reverse lg:flex-row lg:gap-0">
+        <form class="relative w-6/12 lg:w-3/12  flex flex-col justify-center">
+            <div class="flex flex-col gap-3 mb-3">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Digite seu email" class="rounded-sm px-3 h-10">
+            </div>
+            <div class="flex flex-col gap-3 mb-5">
+                <label for="password">Senha</label>
+                <input type="password" name="password" placeholder="Digite sua senha" class="rounded-sm  px-3 h-10">
+            </div>
+            <button class="rounded px-4 bg-sky-500 hover:bg-sky-600 duration-300 h-10 text-white" type="submit"
+                id="login-btn">Entrar</button>
+        </form>
+        <img class="w-6/12 lg:w-4/12 h-64 lg:h-80" src="./assets/img/login_img.svg" alt="">
+    </div>
+</body>
+
+</html>
