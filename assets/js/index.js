@@ -1,5 +1,5 @@
-import { defineTheme } from "./utils/theme.js"
+import { defineTheme } from "./utils/theme.js";
 
-const loginBtn = document.querySelector("#login-btn")
+const loginBtn = document.querySelector("#login-btn");
 
-defineTheme()
+defineTheme();

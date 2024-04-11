@@ -1,3 +1,3 @@
-import { defineTheme } from './utils/theme.js'
+import { defineTheme } from "./utils/theme.js";
 
-defineTheme()
+defineTheme();
