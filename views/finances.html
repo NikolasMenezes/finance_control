@@ -2,14 +2,77 @@
 <html lang="Pt-Br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finanças| APP</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="../assets/js/finances.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finanças | APP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- My CSS -->
+  <link rel="stylesheet" href="../assets/css/globals.css">
+  <script type="module" src="../assets/js/finances.js" defer></script>
 </head>
 
-<body>
+<body class="dark:bg-zinc-900 dark:text-white">
+  <header class="bg-sky-200 dark:bg-sky-600">
+    <nav class="flex justify-between px-10 h-24 max-w-7xl mx-auto items-center dark:text-white">
+      <img src="../assets/img/money-svgrepo-com.svg" class="h-12 rounded-full" alt="" id="logo" />
+      <ul class="flex gap-3">
+        <li class="hover:underline">
+          <a href="/views/dashboard.html">Home</a>
+        </li>
+        <li class="hover:underline">
+          <a href="/views/finances.html">Gráficos</a>
+        </li>
+        <li class="hover:underline"><a href="../index.html">Sair</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="px-5 max-w-7xl mx-auto py-3">
+    <h2 class="font-medium text-3xl my-5">Inserir nova movimentação</h2>
+    <form class="p-10 border dark:border-zinc-600 rounded-md w-8/12 flex flex-col">
+      <div class="mb-5">
+        <label for="type" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
+          Selecione o tipo de movimentação
+        </label>
+        <select id="type"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2">
+          <option selected>Selecione ...</option>
+          <option value="US">Receita</option>
+          <option value="CA">Despesa</option>
+        </select>
+      </div>
+      <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div class="mb-5">
+          <label for="value" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
+            Valor
+          </label>
+          <input type="number" id="value"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="10000" required />
+        </div>
+        <div>
+          <label for="description" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
+            Descrição
+          </label>
+          <input type="text" id="description"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="Dinheiro honesto de apostas" required />
+        </div>
+        <div>
+          <label for="date" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
+            Data
+          </label>
+          <input type="date" id="date"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            required />
+        </div>
+
+      </div>
+      <button type="submit"
+        class="rounded px-4 bg-emerald-500 hover:bg-emerald-600 duration-300 h-10 text-white self-end">
+        Adicionar
+      </button>
+    </form>
+  </main>
 </body>
 
 </html>
