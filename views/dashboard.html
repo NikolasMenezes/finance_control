@@ -26,33 +26,39 @@
           <a href="/views/dashboard.html">Home</a>
         </li>
         <li class="hover:underline">
-          <a href="/views/finances.html">Gráficos</a>
+          <a href="/views/finances.html">Movimentações</a>
         </li>
-        <li class="hover:underline"><a href="../index.html">Sair</a></li>
+        <li class="hover:underline">
+          <a href="/views/settings.html">Configurações</a>
+        </li>
+        <li class="hover:underline">
+          <a href="../index.html">Sair</a>
+        </li>
       </ul>
     </nav>
   </header>
   <main class="px-5 max-w-7xl mx-auto">
-    <div class="flex justify-between items-center h-24">
-      <h2 class="font-medium text-xl">
+    <div class="flex flex-col gap-5 lg:flex-row lg:justify-between items-center lg:h-24 mb-10">
+      <h2 class="font-medium text-xl self-start lg:self-auto">
         <span id="greeting">Olá</span>,
         <span class="font-bold" id="user-name">Elon Musk</span>.
       </h2>
-      <a class="rounded px-4 bg-sky-600 hover:bg-sky-800 duration-300 py-2 text-white" type="submit" id="login-btn"
-        href="./finances.html">Adicione movimentações</a>
+      <a class="rounded px-4 bg-sky-600 hover:bg-sky-800 duration-300 py-2 text-white self-end lg:self-auto"
+        type="submit" id="login-btn" href="./finances.html">Adicione movimentações
+      </a>
     </div>
     <div>
-      <div class="flex justify-between max-h-72">
-        <div class="h-full">
+      <div class="flex flex-col items-center lg:flex-row justify-between max-h-72 gap-5">
+        <div class="h-full lg:w-4/12 w-80">
           <p class="text-2xl font-medium mb-5">Gastos x Receita</p>
           <div class="h-fit w-fit p-5 rounded-md border border-zinc-600 dark:border-zinc-100">
             <canvas id="myChart" class="h-full"></canvas>
           </div>
         </div>
-        <div class="w-8/12 h-full">
+        <div class="md:w-full lg:w-8/12 w-80 h-full">
           <p class="text-2xl font-medium mb-5">Últimas movimentações</p>
-          <div class="rounded-md border-2 border-zinc-600 p-5 flex gap-5">
-            <div class="rounded-md border border-zinc-600 p-5 w-2/6">
+          <div class="rounded-md border-2 border-zinc-600 p-5 flex flex-col md:flex-row gap-5">
+            <div class="rounded-md border border-zinc-600 p-5 w-full lg:w-2/6">
               <p class="font-medium mb-3">Tipo de transação</p>
               <p class="mb-3">
                 Valor:
@@ -66,7 +72,7 @@
                 Data: <span class="date font-medium">10/04/2024</span>
               </p>
             </div>
-            <div class="rounded-md border border-zinc-600 p-5 w-2/6">
+            <div class="rounded-md border border-zinc-600 p-5 w-full lg:w-2/6">
               <p class="mb-3">Tipo de transação</p>
               <p class="mb-3">
                 Valor:
@@ -80,7 +86,7 @@
                 Data: <span class="date font-medium">10/04/2024</span>
               </p>
             </div>
-            <div class="rounded-md border border-zinc-600 p-5 w-2/6">
+            <div class="rounded-md border border-zinc-600 p-5 w-full lg:w-2/6">
               <p class="mb-3">Tipo de transação</p>
               <p class="mb-3">
                 Valor:
