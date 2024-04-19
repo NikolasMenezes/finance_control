@@ -1,7 +1,9 @@
 import { greetingByTime } from "./utils/greeting.js";
+import { logout } from "./utils/logout.js";
 import { defineTheme } from "./utils/theme.js";
 
 const greetingSpan = document.querySelector("#greeting");
+const logoutTrigger = document.querySelector("#logout-trigger");
 
 const ctx = document.getElementById("myChart");
 
@@ -22,5 +24,6 @@ new Chart(ctx, {
   },
 });
 
-greetingSpan.textContent = greetingByTime();
 defineTheme();
+greetingSpan.textContent = greetingByTime();
+logoutTrigger.addEventListener("click", logout);

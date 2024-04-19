@@ -9,6 +9,7 @@
   <!-- My CSS -->
   <link rel="stylesheet" href="../assets/css/globals.css">
   <script type="module" src="../assets/js/finances.js" defer></script>
+  <script type="module" src="../assets/js/utils/logout.js" defer></script>
 </head>
 
 <body class="dark:bg-zinc-900 dark:text-white">
@@ -26,7 +27,7 @@
           <a href="/views/settings.html">Configurações</a>
         </li>
         <li class="hover:underline">
-          <a href="../index.html">Sair</a>
+          <a onclick="logout()">Sair</a>
         </li>
       </ul>
     </nav>

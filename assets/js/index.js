@@ -17,11 +17,11 @@ async function handleLogin(e) {
   };
 
   if (!validFields(loginPayload)) {
-    showToast("Preencha os campos corretamente", "danger");
+    showToast("Preencha os campos corretamente", "error");
     return;
   }
 
-  const response = await fetch(URL_API + "/login", {
+  const response = await fetch(URL_API + "/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -30,7 +30,7 @@ async function handleLogin(e) {
   });
 
   if (!response.ok) {
-    showToast("Email e/ou senha inválidos", "danger");
+    showToast("Email e/ou senha inválidos", "error");
     return;
   }
 
