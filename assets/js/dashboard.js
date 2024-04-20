@@ -1,3 +1,4 @@
+import { userService } from "./service/UserService.js";
 import { greetingByTime } from "./utils/greeting.js";
 import { logout } from "./utils/logout.js";
 import { defineTheme } from "./utils/theme.js";
@@ -24,6 +25,13 @@ new Chart(ctx, {
   },
 });
 
+async function loadUserInfo() {
+  const user = await userService.get();
+
+  console.log(user);
+}
+
 defineTheme();
 greetingSpan.textContent = greetingByTime();
+loadUserInfo();
 logoutTrigger.addEventListener("click", logout);
