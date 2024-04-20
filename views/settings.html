@@ -9,15 +9,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- My CSS -->
   <link rel="stylesheet" href="../assets/css/globals.css">
-  <script type="module" src="../assets/js/finances.js" defer></script>
-  <script type="module" src="../assets/js/utils/logout.js" defer></script>
+  <!-- My js -->
+  <script type="module" src="../assets/js/settings.js" defer></script>
 </head>
 
-<body class="dark:bg-zinc-900 dark:text-white">
+<body class="bg-zinc-100 dark:bg-zinc-900 dark:text-white">
   <header class="bg-sky-200 dark:bg-sky-600">
     <nav class="flex justify-between px-10 h-24 max-w-7xl mx-auto items-center dark:text-white">
       <img src="../assets/img/money-svgrepo-com.svg" class="h-12 rounded-full" alt="" id="logo" />
-      <ul class="flex gap-3">
+
+      <img class="block lg:hidden" src="../assets/img/menu_white_36dp.svg" id="menu-trigger">
+      <ul class="hidden lg:flex gap-5">
         <li class="hover:underline">
           <a href="/views/dashboard.html">Home</a>
         </li>
@@ -25,13 +27,34 @@
           <a href="/views/finances.html">Movimentações</a>
         </li>
         <li class="hover:underline">
-          <a href="/views/settings.html">Configurações</a>
+          <a href="/views/settings.html">Perfil</a>
         </li>
-        <li class="hover:underline">
-          <a onclick="logout()">Sair</a>
+        <li class="hover:underline cursor-pointer logout-trigger">
+          <a>Sair</a>
         </li>
       </ul>
     </nav>
+
+    <div id="menu-mobile" class="absolute top-0 -right-1/2 h-screen w-1/2 bg-sky-200 dark:bg-zinc-800 duration-300">
+      <div class="flex flex-col justify-center gap-10 relative">
+        <img class="block lg:hidden w-10 self-end my-8 mr-10" src="../assets/img/close_white_36dp.svg"
+          id="close-menu-trigger">
+        <ul class="flex flex-col p-5 justify-content-center items-center gap-10 h-1/2 z-5">
+          <li class="hover:underline">
+            <a class="texl-lg font-medium" href="/views/dashboard.html">Home</a>
+          </li>
+          <li class="hover:underline">
+            <a class="texl-lg font-medium" href="/views/finances.html">Movimentações</a>
+          </li>
+          <li class="hover:underline">
+            <a class="texl-lg font-medium" href="/views/settings.html">Perfil</a>
+          </li>
+          <li class="hover:underline cursor-pointer texl-lg font-medium logout-trigger">
+            <a>Sair</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </header>
   <main class="px-5 max-w-7xl mx-auto py-3">
     <h2 class="font-medium text-3xl my-5">Configurações</h2>
