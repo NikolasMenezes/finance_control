@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finanças | APP</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
   <!-- My CSS -->
   <link rel="stylesheet" href="../assets/css/globals.css">
+  <link rel="stylesheet" href="../assets/css/output.css">
   <!-- My js -->
   <script type="module" src="../assets/js/settings.js" defer></script>
 </head>
@@ -58,7 +58,31 @@
     </div>
   </header>
   <main class="px-5 max-w-7xl mx-auto py-3">
-    <h2 class="font-medium text-3xl my-5">Configurações</h2>
+    <div class="flex justify-between items-center">
+      <div class="flex gap-5 items-center mt-5">
+        <div class="w-20 h-20 rounded-full bg-emerald-500 flex justify-center items-center font-bold text-2xl"
+          id="profile-icon">
+          NM
+        </div>
+        <p class="font-medium text-xl">
+          Nikolas Matheus de Menezes
+        </p>
+      </div>
+      <p class="font-medium text-xl">Saldo <span class="text-emerald-500">R$ 1000,03</span></p>
+    </div>
+
+    <div class="my-5 w-1/2">
+      <label for="theme-select" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
+        Escolha o tema do aplicativo
+      </label>
+      <select id="theme-select"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2">
+        <option selected disabled>Selecione ...</option>
+        <option value="system"><i class="bi bi-laptop-fill"></i> Sistema</option>
+        <option value="light"><i class="bi bi-brightness-high-fill"></i> Claro</option>
+        <option value="dark"><i class="bi bi-moon-fill"></i> Escuro</option>
+      </select>
+    </div>
   </main>
 </body>
 
