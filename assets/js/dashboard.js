@@ -9,6 +9,7 @@ const logoutTrigger = document.querySelectorAll(".logout-trigger");
 const openMenuBtn = document.querySelector("#menu-trigger");
 const closeMenuBtn = document.querySelector("#close-menu-trigger");
 const menuMobileContainer = document.querySelector("#menu-mobile");
+const userNameSpan = document.querySelector("#user-name");
 
 const ctx = document.getElementById("myChart");
 
@@ -32,12 +33,12 @@ new Chart(ctx, {
 async function loadUserInfo() {
   const { name } = await userService.get();
 
-  console.log(name);
+  userNameSpan.textContent = await name;
 }
 
 defineTheme();
 greetingSpan.textContent = greetingByTime();
-// loadUserInfo();
+loadUserInfo();
 logoutTrigger.forEach((trigger) => trigger.addEventListener("click", logout));
 openMenuBtn.addEventListener("click", () => openMenu(menuMobileContainer));
 closeMenuBtn.addEventListener("click", () => closeMenu(menuMobileContainer));

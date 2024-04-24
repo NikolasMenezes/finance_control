@@ -6,7 +6,7 @@ class UserService {
   async get() {
     const response = await fetch(URL_API + "/user/3", {
       headers: {
-        Authorization: "Bearer " + token,
+        Authorization: token,
       },
     });
 
