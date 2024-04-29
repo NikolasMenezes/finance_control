@@ -10,8 +10,6 @@ const passwordInput = document.querySelector("#password");
 const confirmPasswordInput = document.querySelector("#confirm-password");
 const registerBtn = document.querySelector("#register-btn");
 
-console.log(ageInput.value);
-
 function passwordsMatches(firstPass, SecondPass) {
   return firstPass === SecondPass;
 }

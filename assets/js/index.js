@@ -1,4 +1,5 @@
 import { URL_API } from "./constants/app.js";
+import { authService } from "./service/AuthService.js";
 import { redirector } from "./utils/redirector.js";
 import { defineTheme } from "./utils/theme.js";
 import { showToast } from "./utils/toast.js";
@@ -21,20 +22,7 @@ async function handleLogin(e) {
     return;
   }
 
-  const response = await fetch(URL_API + "/auth/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(loginPayload),
-  });
-
-  if (!response.ok) {
-    showToast("Email e/ou senha inválidos", "error");
-    return;
-  }
-
-  const { token } = await response.json();
+  const { token } = await authService.login(loginPayload);
 
   localStorage.setItem("token", token);
   redirector("/views/dashboard.html", true);

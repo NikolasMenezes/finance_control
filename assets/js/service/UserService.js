@@ -4,7 +4,7 @@ import { showToast } from "../utils/toast.js";
 
 class UserService {
   async get() {
-    const response = await fetch(URL_API + "/user/3", {
+    const response = await fetch(URL_API + "/user", {
       headers: {
         Authorization: token,
       },

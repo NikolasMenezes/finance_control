@@ -1,8 +1,8 @@
 import { userService } from "./service/UserService.js";
 import { greetingByTime } from "./utils/greeting.js";
-import { logout } from "./utils/logout.js";
 import { defineTheme } from "./utils/theme.js";
 import { openMenu, closeMenu } from "./utils/menu.js";
+import { authService } from "./service/AuthService.js";
 
 const greetingSpan = document.querySelector("#greeting");
 const logoutTrigger = document.querySelectorAll(".logout-trigger");
@@ -37,8 +37,10 @@ async function loadUserInfo() {
 }
 
 defineTheme();
-greetingSpan.textContent = greetingByTime();
 loadUserInfo();
-logoutTrigger.forEach((trigger) => trigger.addEventListener("click", logout));
+greetingSpan.textContent = greetingByTime();
+logoutTrigger.forEach((trigger) =>
+  trigger.addEventListener("click", authService.logout)
+);
 openMenuBtn.addEventListener("click", () => openMenu(menuMobileContainer));
 closeMenuBtn.addEventListener("click", () => closeMenu(menuMobileContainer));
