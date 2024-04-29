@@ -1,7 +1,7 @@
-import { URL_API } from "./constants/app.js";
 import { defineTheme } from "./utils/theme.js";
 import { showToast } from "./utils/toast.js";
 import { validFields } from "./utils/validateFields.js";
+import { userService } from "./service/UserService.js";
 
 const nameInput = document.querySelector("#name");
 const emailInput = document.querySelector("#email");
@@ -33,21 +33,7 @@ async function registerUser(e) {
     showToast("Preencha todos os campos!", "error");
     return;
   }
-
-  const response = await fetch(URL_API + "/User", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userInfo),
-  });
-
-  if (response.ok) {
-    showToast("Cadastro realizado com sucesso!");
-    return;
-  }
-
-  showToast("Algo deu errado!", "error");
+  userService.create(userInfo);
 }
 
 defineTheme();
