@@ -19,6 +19,16 @@ const saveUserModificationBtn = document.querySelector(
   "#save-modification-btn"
 );
 
+const navigationItems = document.querySelectorAll(".navigation-item");
+
+navigationItems.forEach((item) =>
+  item.addEventListener("click", ({ target }) => {
+    const contentId = target.getAttribute("content-id");
+    // const content = document.getElementById(contentId);
+    console.log(contentId);
+  })
+);
+
 async function loadUserInfo() {
   const { name, email, age } = await userService.get();
 

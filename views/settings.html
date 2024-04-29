@@ -82,15 +82,22 @@
     <div class="flex gap-5">
       <aside class="lg:w-3/12 p-5">
         <ul class="flex flex-col gap-5">
-          <li class="bg-sky-600 h-14 px-5 rounded-md flex items-center hover:cursor-pointer text-md font-medium">Meu
-            Cadastro</li>
-          <li class="h-14 px-5 rounded-md flex items-center hover:cursor-pointer text-md font-medium">Cartões
+          <li
+            class="navigation-item bg-sky-600 h-14 px-5 rounded-md flex items-center hover:cursor-pointer text-md font-medium"
+            content-id="my-registration">
+            Meu Cadastro
           </li>
-          <li class="h-14 px-5 rounded-md flex items-center hover:cursor-pointer text-md font-medium"> Contas
-            Bancárias</li>
+          <li class="navigation-item h-14 px-5 rounded-md flex items-center hover:cursor-pointer text-md font-medium"
+            content-id="cards">
+            Cartões
+          </li>
+          <li class="navigation-item h-14 px-5 rounded-md flex items-center hover:cursor-pointer text-md font-medium"
+            content-id="bank-accounts">
+            Contas Bancárias
+          </li>
         </ul>
       </aside>
-      <section class="lg:w-9/12 border-2 border-zinc-200 p-5">
+      <section class="lg:w-9/12 border-2 border-zinc-200 p-5" id="my-registration">
         <form class="flex flex-col">
           <div class="flex gap-5">
             <div class="flex flex-col gap-3 mb-5">
@@ -123,6 +130,8 @@
           </div>
         </form>
       </section>
+      <section class="lg:w-9/12 border-2 border-zinc-200 p-5 hidden" id="cards"></section>
+      <section class="lg:w-9/12 border-2 border-zinc-200 p-5 hidden" id="bank-accounts"></section>
     </div>
   </main>
 </body>
