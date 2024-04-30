@@ -52,6 +52,26 @@ class UserService {
 
     return { status: response.statusCode, data: await response.json() };
   }
+
+  async delete() {
+    const response = await fetch(URL_API + "/user", {
+      method: "Delete",
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    if (!response.ok) {
+      showToast("Ocorreu um erro ao excluir a conta!", "error");
+      throw new Error(
+        "Erro ao exlucuir usuário",
+        response.status,
+        response.statusText
+      );
+    }
+
+    return await response.json();
+  }
 }
 
 export const userService = new UserService();
