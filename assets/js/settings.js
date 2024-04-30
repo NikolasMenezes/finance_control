@@ -24,10 +24,28 @@ const navigationItems = document.querySelectorAll(".navigation-item");
 navigationItems.forEach((item) =>
   item.addEventListener("click", ({ target }) => {
     const contentId = target.getAttribute("content-id");
-    // const content = document.getElementById(contentId);
-    console.log(contentId);
+
+    showClickedTab(contentId);
+    navigationItems.forEach((element) =>
+      element.classList.remove("bg-sky-600")
+    );
+    target.classList.add("bg-sky-600");
   })
 );
+
+function showClickedTab(clicked) {
+  const elements = ["my_registration", "cards", "bank_accounts"].map((id) =>
+    document.getElementById(id)
+  );
+
+  const [selectedTab] = elements.filter((element) => element.id === clicked);
+  selectedTab.classList.remove("hidden");
+  elements.map((element) => {
+    if (element !== selectedTab) {
+      element.classList.add("hidden");
+    }
+  });
+}
 
 async function loadUserInfo() {
   const { name, email, age } = await userService.get();
