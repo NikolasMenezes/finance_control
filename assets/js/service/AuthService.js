@@ -22,8 +22,11 @@ class AuthService {
   }
 
   async logout() {
-    fetch(URL_API + "/auth/logout?tokenValue=" + token, {
+    fetch(URL_API + "/auth/logout", {
       method: "POST",
+      headers: {
+        Authorization: token,
+      },
     });
 
     redirector("/");

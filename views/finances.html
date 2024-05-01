@@ -57,17 +57,17 @@
     </div>
   </header>
   <main class="px-5 max-w-7xl mx-auto py-3">
-    <h2 class="font-medium text-3xl my-5">Inserir nova movimentação</h2>
-    <form class="p-10 border dark:border-zinc-600 rounded-md w-full lg:w-8/12 flex flex-col">
+    <h2 class="font-medium text-3xl my-5 text-center">Inserir nova movimentação</h2>
+    <form class="p-10 w-full lg:w-8/12 flex flex-col mx-auto">
       <div class="mb-5">
         <label for="type" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
           Selecione o tipo de movimentação
         </label>
-        <select id="type"
+        <select id="transaction-type-select"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2">
           <option selected>Selecione ...</option>
-          <option value="US">Receita</option>
-          <option value="CA">Despesa</option>
+          <option value="income">Receita</option>
+          <option value="expense">Despesa</option>
         </select>
       </div>
       <div class="grid gap-6 mb-6 md:grid-cols-2">
@@ -79,6 +79,14 @@
             class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="10000" required />
         </div>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" value="" class="sr-only peer">
+          <div
+            class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-emerald-300 dark:peer-focus:ring-emerald-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-emerald-600">
+          </div>
+          <span class="ms-3 text-md font-medium text-gray-900 dark:text-gray-300">Concluído</span>
+        </label>
+
         <div>
           <label for="description" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
             Descrição
@@ -87,6 +95,8 @@
             class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Dinheiro honesto de apostas" required />
         </div>
+
+
         <div>
           <label for="date" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
             Data
@@ -94,6 +104,15 @@
           <input type="date" id="date"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             required />
+        </div>
+        <div class="flex flex-col gap-3">
+          <label for="type" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
+            Selecione o tipo de movimentação
+          </label>
+          <select id="category-select" disabled
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2">
+            <option selected>Selecione a categoria...</option>
+          </select>
         </div>
 
       </div>

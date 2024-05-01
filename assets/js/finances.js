@@ -1,13 +1,40 @@
 import { defineTheme } from "./utils/theme.js";
 import { closeMenu, openMenu } from "./utils/menu.js";
 import { authService } from "./service/AuthService.js";
+import { categoriesByType } from "./data/categories-by-type.js";
 
 const logoutTrigger = document.querySelectorAll(".logout-trigger");
 const openMenuBtn = document.querySelector("#menu-trigger");
 const closeMenuBtn = document.querySelector("#close-menu-trigger");
 const menuMobileContainer = document.querySelector("#menu-mobile");
+const transactionTypeSelect = document.querySelector(
+  "#transaction-type-select"
+);
+const categorySelect = document.querySelector("#category-select");
 
 defineTheme();
+
+function renderOptions(select, data) {
+  // cleanup options
+  while (select.options.length > 1) {
+    select.remove(select.options.length - 1);
+  }
+  // insert new options
+  for (const category of data) {
+    const option = new Option(category.name, category.value);
+    select.add(option);
+  }
+}
+
+function handleTransactionTypeChange({ target }) {
+  categorySelect.disabled = false;
+
+  const type = target.options[target.selectedIndex].value;
+
+  renderOptions(categorySelect, categoriesByType[type]);
+}
+
+transactionTypeSelect.addEventListener("change", handleTransactionTypeChange);
 openMenuBtn.addEventListener("click", () => openMenu(menuMobileContainer));
 closeMenuBtn.addEventListener("click", () => closeMenu(menuMobileContainer));
 logoutTrigger.forEach((trigger) =>
