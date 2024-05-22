@@ -18,60 +18,64 @@ class AccountService {
     return await response.json();
   }
 
-  // async create(payload) {
-  //   const response = await fetch(URL_API + "/User", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(payload),
-  //   });
+  async create(payload) {
+    const response = await fetch(URL_API + "/account", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      },
+      body: JSON.stringify(payload),
+    });
 
-  //   if (response.ok) {
-  //     showToast("Cadastro realizado com sucesso!");
-  //     setTimeout(() => redirector("/"), 3000);
-  //     return;
-  //   }
+    if (response.ok) {
+      showToast("Cadastro realizado com sucesso!");
+      setTimeout(() => location.reload(), 2500)
+      return;
+    }
 
-  //   showToast("Algo deu errado!", "error");
-  // }
+    showToast("Algo deu errado!", "error");
+  }
 
-  // async update(payload) {
-  //   const response = await fetch(URL_API + "/user", {
-  //     method: "Put",
-  //     headers: {
-  //       Authorization: token,
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(payload),
-  //   });
+  async update(id, payload) {
+    const response = await fetch(URL_API + "/account/" + id, {
+      method: "Put",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
 
-  //   if (!response.ok) {
-  //     return showToast("Ocorreu um erro ao atualizar as informações!", "error");
-  //   }
+    if (!response.ok) {
+      return showToast("Ocorreu um erro ao atualizar as informações!", "error");
+    }
 
-  //   return { status: response.statusCode, data: await response.json() };
-  // }
+    return { status: response.statusCode, data: await response.json()};
+  }
 
-  // async delete() {
-  //   const response = await fetch(URL_API + "/user", {
-  //     method: "Delete",
-  //     headers: {
-  //       Authorization: token,
-  //     },
-  //   });
+   async delete(id) {
+     const response = await fetch(URL_API + "/account/" + id, {
+       method: "Delete",
+       headers: {
+         Authorization: token,
+       },
+     });
 
-  //   if (!response.ok) {
-  //     showToast("Ocorreu um erro ao excluir a conta!", "error");
-  //     throw new Error(
-  //       "Erro ao exlucuir usuário",
-  //       response.status,
-  //       response.statusText
-  //     );
-  //   }
+     if (!response.ok) {
+       showToast("Ocorreu um erro ao excluir a conta!", "error");
+       throw new Error(
+         "Erro ao exlucuir conta",
+         response.status,
+         response.statusText
+       );
+     }
 
-  //   return await response.json();
-  // }
+     showToast("Conta excluída com sucesso!");
+     setTimeout(() => location.reload(), 2500)
+     return await response.json();
+    
+   }
 }
 
 export const accountService = new AccountService();
