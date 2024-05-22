@@ -1,65 +1,65 @@
 export const categoriesByType = {
   income: [
     {
-      value: "",
+      balance: "",
       name: "Investimentos",
     },
     {
-      value: "",
+      balance: "",
       name: "Salário",
     },
     {
-      value: "",
+      balance: "",
       name: "Presente",
     },
     {
-      value: "",
+      balance: "",
       name: "Prêmio",
     },
     {
-      value: "",
+      balance: "",
       name: "Restituição",
     },
   ],
   expense: [
     {
-      value: "",
+      balance: "",
       name: "Alimentação",
     },
     {
-      value: "",
+      balance: "",
       name: "Beleza e cuidados pessoais",
     },
     {
-      value: "",
+      balance: "",
       name: "Moda e vestuário",
     },
     {
-      value: "",
+      balance: "",
       name: "Saúde e Fitness",
     },
     {
-      value: "",
+      balance: "",
       name: "Tecnologia",
     },
     {
-      value: "",
+      balance: "",
       name: "Casa e decoração",
     },
     {
-      value: "",
+      balance: "",
       name: "Entretenimento",
     },
     {
-      value: "",
+      balance: "",
       name: "Educação",
     },
     {
-      value: "",
+      balance: "",
       name: "Viagem",
     },
     {
-      value: "",
+      balance: "",
       name: "Animais de estimação",
     },
   ],
