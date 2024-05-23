@@ -3,6 +3,8 @@ import { greetingByTime } from "./utils/greeting.js";
 import { defineTheme } from "./utils/theme.js";
 import { openMenu, closeMenu } from "./utils/menu.js";
 import { authService } from "./service/AuthService.js";
+import { transactionService } from "./service/TransactionService.js";
+import { renderTransactions } from "./dashboard/render-transaction.js";
 
 const greetingSpan = document.querySelector("#greeting");
 const logoutTrigger = document.querySelectorAll(".logout-trigger");
@@ -36,8 +38,25 @@ async function loadUserInfo() {
   userNameSpan.textContent = await name;
 }
 
+async function loadLastTransactions() {
+  const transactions = await transactionService.getRecent();
+  const transactionsContainer = document.querySelector(
+    "#transactions-container"
+  );
+
+  if (transactions.length === 0) {
+    transactionsContainer.innerHTML += "Nenhum registro foi encontrado!";
+    return;
+  }
+
+  transactions.map((transaction) =>
+    renderTransactions(transactionsContainer, transaction)
+  );
+}
+
 defineTheme();
 loadUserInfo();
+loadLastTransactions();
 greetingSpan.textContent = greetingByTime();
 logoutTrigger.forEach((trigger) =>
   trigger.addEventListener("click", authService.logout)

@@ -17,6 +17,20 @@ class TransactionService {
   //   return await response.json();
   // }
 
+  async getRecent() {
+    const response = await fetch(URL_API + "/transaction/last/3", {
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    if (!response.ok) {
+      return showToast("Ocorreu um erro ao buscar as informações!", "error");
+    }
+
+    return await response.json();
+  }
+
   async create(accountId, payload) {
     const response = await fetch(
       URL_API + "/transaction/account/" + accountId,
