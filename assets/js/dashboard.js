@@ -21,7 +21,7 @@ new Chart(ctx, {
     labels: ["Gastos", "Receita"],
     datasets: [
       {
-        data: [90, 10],
+        data: [70, 30],
         borderWidth: 1,
       },
     ],
