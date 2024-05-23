@@ -4,6 +4,9 @@ import { authService } from "./service/AuthService.js";
 import { accountService } from "./service/AccountService.js";
 import { categoriesByType } from "./data/categories-by-type.js";
 import { formatCurrency } from "./utils/formatCurrency.js";
+import { transactionService } from "./service/TransactionService.js";
+import { validFields } from "./utils/validateFields.js";
+import { showToast } from "./utils/toast.js";
 
 const logoutTrigger = document.querySelectorAll(".logout-trigger");
 const openMenuBtn = document.querySelector("#menu-trigger");
@@ -14,7 +17,11 @@ const transactionTypeSelect = document.querySelector(
 );
 const categorySelect = document.querySelector("#category-select");
 const moneyValueInput = document.querySelector("#value");
-const accountSelect = document.querySelector("#accounts-select")
+const accountSelect = document.querySelector("#accounts-select");
+const descriptionInput = document.querySelector("#description");
+const doneCheckbox = document.querySelector("#done-checkbox");
+const dateInput = document.querySelector("#date");
+const saveTransactionBtn = document.querySelector("#save-transaction-btn");
 
 moneyValueInput.addEventListener("input", ({ target }) => {
   target.value = formatCurrency(target.value);
@@ -27,7 +34,7 @@ function renderOptions(select, data) {
     select.remove(select.options.length - 1);
   }
   for (const category of data) {
-    const option = new Option(category.name, category.balance);
+    const option = new Option(category.name, category.id);
     select.add(option);
   }
 }
@@ -40,10 +47,46 @@ function handleTransactionTypeChange({ target }) {
   renderOptions(categorySelect, categoriesByType[type]);
 }
 
-async function renderAccountsOnSelect(){
-  const accounts = await accountService.get()
-  
-  renderOptions(accountSelect,accounts)
+async function renderAccountsOnSelect() {
+  const accounts = await accountService.get();
+  console.log(accounts);
+  renderOptions(accountSelect, accounts);
+}
+
+async function addTransaction(e) {
+  e.preventDefault();
+
+  const payload = {
+    date: dateInput.value,
+    type:
+      transactionTypeSelect.options[transactionTypeSelect.selectedIndex].value,
+    description: descriptionInput.value,
+    value:
+      parseFloat(
+        (Number(moneyValueInput.value.replace(/\D/g, "")) / 100).toFixed(2)
+      ) ?? 0,
+    category: categorySelect.options[categorySelect.selectedIndex].value,
+  };
+
+  const account = accountSelect.options[accountSelect.selectedIndex].value;
+
+  console.log(payload);
+  if (!validFields(payload)) {
+    showToast("Preencha todos os campos corretamente", "error");
+    return;
+  }
+
+  if (
+    payload["category"] == "Selecione ..." ||
+    payload["type"] == "Selecione ..." ||
+    account == "Selecione ..."
+  ) {
+    showToast("Preencha todos os campos corretamente", "error");
+    return;
+  }
+  payload["done"] = doneCheckbox.checked;
+
+  transactionService.create(account, payload);
 }
 
 transactionTypeSelect.addEventListener("change", handleTransactionTypeChange);
@@ -52,4 +95,5 @@ closeMenuBtn.addEventListener("click", () => closeMenu(menuMobileContainer));
 logoutTrigger.forEach((trigger) =>
   trigger.addEventListener("click", authService.logout)
 );
-renderAccountsOnSelect()
+renderAccountsOnSelect();
+saveTransactionBtn.addEventListener("click", addTransaction);
