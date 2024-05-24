@@ -81,20 +81,21 @@
       <p class="font-medium text-xl self-center lg:self-auto">Saldo <span id="balance-span">R$ 0,00</span></p>
     </div>
 
-    <div class="flex gap-5">
+    <div class="flex flex-col md:flex-row gap-5">
       <aside class="lg:w-3/12 p-5">
-        <ul class="flex flex-col gap-5">
+        <ul class="flex md:flex-col gap-5">
           <li
-            class="navigation-item bg-sky-600 h-14 px-5 rounded-md flex items-center hover:cursor-pointer text-md font-medium"
+            class="navigation-item bg-sky-600 text-sm md:text-md h-14 px-5 rounded-md flex items-center hover:cursor-pointer  font-medium"
             content-id="my_registration">
             Meu Cadastro
           </li>
           <li
-            class="hidden navigation-item h-14 px-5 rounded-md flex items-center hover:cursor-pointer text-md font-medium"
+            class="hidden navigation-item text-sm md:text-md h-14 px-5 rounded-md flex items-center hover:cursor-pointer  font-medium"
             content-id="cards">
             Cartões
           </li>
-          <li class="navigation-item h-14 px-5  rounded-md flex items-center hover:cursor-pointer text-md font-medium"
+          <li
+            class="navigation-item text-sm md:text-md h-14 px-5  rounded-md flex items-center hover:cursor-pointer  font-medium"
             content-id="bank_accounts">
             Contas Bancárias
           </li>
@@ -102,7 +103,7 @@
       </aside>
       <section class="lg:w-9/12 p-5" id="my_registration">
         <form class="flex flex-col">
-          <div class="flex gap-5">
+          <div class="flex flex-col md:flex-row gap-5">
             <div class="flex flex-col gap-3 mb-5">
               <label for="name"><i class="bi bi-person-circle"></i> Nome</label>
               <input type="text" name="name" id="name-input"
@@ -114,14 +115,14 @@
                 class="rounded-lg dark:text-black px-3 h-10 hover:bg-zinc-200 outline-none" />
             </div>
           </div>
-          <div class="flex gap-5">
+          <div class="flex flex-col md:flex-row gap-5">
             <div class="flex flex-col gap-3 mb-5">
               <label for="email"><i class="bi bi-envelope"></i> Email</label>
               <input type="text" name="email" id="email-input"
-                class="rounded-lg dark:text-black px-3 h-10 hover:bg-zinc-200 outline-none" />
+                class="rounded-lg dark:text-black px-3 h-10 hover:bg-zinc-200 outline-none w-full" />
             </div>
           </div>
-          <div class="self-end">
+          <div class="flex flex-col md:flex-row self-end gap-3 md:gap-5">
             <button class="rounded px-4 bg-red-600 hover:bg-red-700 duration-300 h-10 text-white mb-5" type="button"
               data-modal-target="popup-modal" data-modal-toggle="popup-modal">
               Deletar conta

@@ -1,7 +1,7 @@
 export async function renderAccountElement(container, { name, balance, id }) {
   const html = `
   <div class="flex flex-col gap-5 p-5 border border-zinc-50 rounded">
-    <div class="flex justify-between ">
+    <div class="flex flex-col gap-3 md:flex-row justify-between ">
       <p lass="font-medium text-md">${name}</p>
       <p class="font-medium text-md">Saldo <span class="account-balance-span ${
         balance >= 0 ? "text-emerald-500" : "text-red-500"
