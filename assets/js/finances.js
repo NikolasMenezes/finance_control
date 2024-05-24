@@ -49,7 +49,6 @@ function handleTransactionTypeChange({ target }) {
 
 async function renderAccountsOnSelect() {
   const accounts = await accountService.get();
-  console.log(accounts);
   renderOptions(accountSelect, accounts);
 }
 
@@ -70,7 +69,6 @@ async function addTransaction(e) {
 
   const account = accountSelect.options[accountSelect.selectedIndex].value;
 
-  console.log(payload);
   if (!validFields(payload)) {
     showToast("Preencha todos os campos corretamente", "error");
     return;

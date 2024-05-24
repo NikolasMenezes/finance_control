@@ -42,9 +42,7 @@ async function deleteUserAccount() {
 
     showToast("Conta excluída com sucesso!");
     setTimeout(() => redirector("/", true), 2500);
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
 
 loadUserInfo();

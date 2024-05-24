@@ -13,25 +13,6 @@ const closeMenuBtn = document.querySelector("#close-menu-trigger");
 const menuMobileContainer = document.querySelector("#menu-mobile");
 const userNameSpan = document.querySelector("#user-name");
 
-const ctx = document.getElementById("myChart");
-
-new Chart(ctx, {
-  type: "pie",
-  data: {
-    labels: ["Gastos", "Receita"],
-    datasets: [
-      {
-        data: [70, 30],
-        borderWidth: 1,
-      },
-    ],
-    colors: ["#ff0000", "#0000ff"],
-  },
-  options: {
-    responsive: false,
-  },
-});
-
 async function loadUserInfo() {
   const { name } = await userService.get();
 
@@ -54,9 +35,33 @@ async function loadLastTransactions() {
   );
 }
 
+async function loadChart() {
+  const movement = await transactionService.getFinancialMovement();
+
+  const ctx = document.getElementById("myChart");
+
+  new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels: ["Receita"],
+      datasets: [
+        {
+          data: [movement.IncomeTotal, movement.ExpenseTotal],
+          borderWidth: 1,
+        },
+      ],
+      colors: ["#ff0000", "#0000ff"],
+    },
+    options: {
+      responsive: false,
+    },
+  });
+}
+
 defineTheme();
 loadUserInfo();
 loadLastTransactions();
+loadChart();
 greetingSpan.textContent = greetingByTime();
 logoutTrigger.forEach((trigger) =>
   trigger.addEventListener("click", authService.logout)

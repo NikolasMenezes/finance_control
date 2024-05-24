@@ -3,19 +3,21 @@ import { token } from "../constants/token.js";
 import { showToast } from "../utils/toast.js";
 
 class TransactionService {
-  // async get() {
-  //   const response = await fetch(URL_API + "/account/user", {
-  //     headers: {
-  //       Authorization: token,
-  //     },
-  //   });
+  async getFinancialMovement() {
+    const date = new Date();
 
-  //   if (!response.ok) {
-  //     return showToast("Ocorreu um erro ao buscar as informações!", "error");
-  //   }
+    const response = await fetch(
+      URL_API +
+        `/financial-movement/${date.getMonth() + 1}/${date.getFullYear()}`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
 
-  //   return await response.json();
-  // }
+    return await response.json();
+  }
 
   async getRecent() {
     const response = await fetch(URL_API + "/transaction/last/3", {
