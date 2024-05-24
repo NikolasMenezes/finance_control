@@ -37,8 +37,15 @@ async function loadLastTransactions() {
 
 async function loadChart() {
   const movement = await transactionService.getFinancialMovement();
-
+  console.log(movement);
   const ctx = document.getElementById("myChart");
+
+  if (movement.message) {
+    const p = document.querySelector("#fallback");
+    p.classList.remove("hidden");
+    p.textContent = "Nenhuma informação foi encontrada!";
+    return;
+  }
 
   new Chart(ctx, {
     type: "pie",

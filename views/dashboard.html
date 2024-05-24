@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="Pt-Br">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
@@ -76,12 +76,15 @@
     <div>
       <div class="flex flex-col items-center lg:flex-row justify-between max-h-72 gap-5">
         <div class="h-full lg:w-4/12 w-80">
-          <p class="text-2xl font-medium mb-5">Gastos x Receita</p>
-          <div class="h-fit w-fit p-5 rounded-md border border-zinc-600 dark:border-zinc-100">
+          <div class="flex flex-col">
+            <p class="text-2xl font-medium mb-7">Gastos x Receita</p>
+            <p id="fallback" class="hidden"></p>
+          </div>
+          <div class="h-fit w-fit">
             <canvas id="myChart" class="h-full"></canvas>
           </div>
         </div>
-        <div class="md:w-full lg:w-8/12 w-80 h-full">
+        <div class="md:w-full lg:w-8/12 w-80 h-full flex flex-col self-start">
           <p class="text-2xl font-medium mb-5">Últimas movimentações</p>
           <div class="rounded-md  p-5 flex flex-col md:flex-row gap-5" id="transactions-container">
           </div>
